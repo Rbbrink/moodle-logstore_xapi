@@ -21,8 +21,10 @@ defined('MOODLE_INTERNAL') || die();
 use src\transformer\utils as utils;
 
 function content_page_viewed(array $config, \stdClass $event) {
+    echo "This works";
     $repo = $config['repo'];
     $user = $repo->read_record_by_id('user', $event->userid);
+    echo $user;
     $course = $repo->read_record_by_id('course', $event->courseid);
     $lang = utils\get_course_lang($course);
 
